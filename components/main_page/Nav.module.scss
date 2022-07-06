@@ -1,0 +1,22 @@
+.nav {
+  width: 20vw;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 20vh;
+  left: 20px;
+}
+
+.nav > a {
+  margin: 5px 0;
+  padding: 10px;
+  padding-left: 20px;
+  box-shadow: 0 1px 3px 1px black;
+  border-radius: 2px;
+  background-color: var(--clr-theme);
+  transition: transform 100ms ease-out;
+}
+
+.nav > a:hover {
+  transform: translatex(5px);
+}

@@ -1,0 +1,24 @@
+.footer {
+  margin-left: 30px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  font-size: var(--fs-large);
+}
+
+.dots {
+  align-self: flex-end;
+}
+
+.footer > a {
+  display: inline-block;
+  cursor: pointer;
+  width: 1.6em;
+  height: 1.6em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--clr-theme);
+  border-radius: 100px;
+}
