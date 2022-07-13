@@ -1,32 +1,45 @@
+import { Grid, Typography as Typo, Box } from "@mui/material";
+import StarBorder from "@mui/icons-material/StarBorder";
 import Product from "../../../models/Product";
 import classes from "./ProductsItem.module.scss";
 
 const ProductsItem = (product: Product) => {
-  let formattedDescription = product.description.slice(0, 19);
-  if (formattedDescription[18] === " ") {
-    formattedDescription = formattedDescription.slice(0, 18);
-  }
-  if (
-    formattedDescription.length !== product.description.length
-  ) {
-    formattedDescription += "...";
-  }
+  let formattedDescription = product.description.slice();
 
   return (
-    <section className={classes.item}>
-      <div className={classes.image}>
-        <p>Image</p>
-      </div>
-      <div className={classes.main}>
-        <p>{formattedDescription}</p>
-        <h3>{product.title}</h3>
-      </div>
-      <div className={classes.rating}>
-        <strong>{product.rating ? product.rating : "0"}</strong>
-
-        <img src="/rating-star.svg" alt="stars" />
-      </div>
-    </section>
+    <Grid
+      item
+      component="section"
+      className={classes.item}
+      maxWidth={{xs: '400px'}}
+      xs={11}
+      sm={6}
+      md={4}
+      lg={3}
+    >
+      <Box className={classes.image}>
+        <Typo variant="h5">Image</Typo>
+      </Box>
+      <Box className={classes.main}>
+        <Typo variant="body2">{formattedDescription}</Typo>
+        <Typo variant="subtitle1" lineHeight="1.5em">
+          {product.title}
+        </Typo>
+      </Box>
+      <Box className={classes.rating}>
+        <Typo
+          component="strong"
+          variant="subtitle1"
+          fontWeight="bold"
+          sx={{
+            verticalAlign: "middle",
+          }}
+        >
+          {product.rating ? product.rating : "0"}
+        </Typo>
+        <StarBorder fontSize="small" />
+      </Box>
+    </Grid>
   );
 };
 
