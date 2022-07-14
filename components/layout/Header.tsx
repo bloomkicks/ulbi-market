@@ -2,29 +2,18 @@ import {
   AppBar,
   Toolbar,
   Box,
-  Button,
+  Drawer,
   Typography,
   IconButton,
 } from "@mui/material";
+import HeaderNav from "./HeaderNav";
 import MenuIcon from "@mui/icons-material/Menu";
+import { useState } from "react";
 import classes from "./Header.module.scss";
 
-const links = [
-  {
-    name: "Админ",
-    url: "#",
-  },
-  {
-    name: "Корзина",
-    url: "#",
-  },
-  {
-    name: "Выйти",
-    url: "#",
-  },
-];
-
 const Header = () => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
   return (
     <AppBar color="secondary" sx={{ height: "50px" }}>
       <Toolbar
@@ -41,30 +30,24 @@ const Header = () => {
             КупиДевайс
           </Typography>
         </Box>
-        <Box component="nav" ml="auto">
-          {links.map((link, i) => {
-            return (
-              <Button
-                component="a"
-                key={"asdfkasjd" + link.name + i}
-                href={link.url}
-                sx={{
-                  display: {
-                    xs: "none",
-                    md: "inline-flex",
-                  },
-                  justifyContent: "center",
-                  alignItems: "center",
-                  px: "25px",
-                  py: "10px",
-                  mx: "3px",
-                }}
-              >
-                {link.name}
-              </Button>
-            );
-          })}
+        <Box ml="auto">
+          <Drawer
+            onClose={() => setIsOpen(false)}
+            open={isOpen}
+            anchor="right"
+            sx={{
+              "& .MuiPaper-elevation": {
+                paddingTop: "10px",
+              },
+            }}
+          >
+            <HeaderNav
+              display={{ xs: "inline-flex", md: "none" }}
+            />
+          </Drawer>
+          <HeaderNav />
           <IconButton
+            onClick={() => setIsOpen(true)}
             sx={{
               display: { xs: "inline-flex", md: "none" },
             }}
