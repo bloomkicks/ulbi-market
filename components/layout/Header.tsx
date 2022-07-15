@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   AppBar,
   Toolbar,
@@ -25,11 +26,17 @@ const Header = () => {
           mx: "auto",
         }}
       >
-        <Box mr="auto">
-          <Typography variant="h6" component="h6">
-            КупиДевайс
-          </Typography>
-        </Box>
+        <Link href="/" passHref>
+          <Box
+            mr="auto"
+            padding="10px 20px"
+            sx={{ cursor: "pointer" }}
+          >
+            <Typography variant="h6" component="h6">
+              КупиДевайс
+            </Typography>
+          </Box>
+        </Link>
         <Box ml="auto">
           <Drawer
             onClose={() => setIsOpen(false)}
@@ -43,6 +50,7 @@ const Header = () => {
           >
             <HeaderNav
               display={{ xs: "inline-flex", md: "none" }}
+              clickHandler={() => setIsOpen(false)}
             />
           </Drawer>
           <HeaderNav />

@@ -1,30 +1,38 @@
 const { randomBytes } = require('crypto')
 
-function getId() {
-  const bytes = randomBytes(16)
-  const id = bytes.toString
+export type Rating = 0 | 0.5 | 1 | 1.5 | 2 | 2.5 | 3 | 3.5 | 4 | 4.5 | 5
+export type ProductId = string
 
-  console.log(bytes, id)
+function getId(): ProductId {
+  const bytes = randomBytes(16)
+  const id = bytes.toString()
+
   return id
 }
-
-type Rating = 0 | 0.5 | 1 | 1.5 | 2 | 2.5 | 3 | 3.5 | 4 | 4.5 | 5
 
 class Product {
   title: string;
   description: string;
+  price: number
   categories: string[];
+  id: ProductId;
   rating?: Rating;
-  id: string;
 
-  constructor(title: string, description: string, categories: string[], rating?: Rating, id?: string) {
+  constructor(
+    title: string,
+    description: string,
+    price: number,
+    categories: string[],
+    id?: ProductId,
+    rating?: Rating,
+  ) {
     this.title = title
     this.description = description
-    this.rating = rating!
+    this.price = price
     this.categories = categories
+    this.rating = rating!
     this.id = id ? id : getId()
   }
-
 }
 
 export default Product

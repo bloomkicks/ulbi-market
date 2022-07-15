@@ -1,6 +1,6 @@
-import Nav from "../components/main_page/Nav";
-import Products from "../components/main_page/products/Products";
-import Footer from "../components/main_page/footer/Footer";
+import Nav from "../components/main-page/Nav";
+import Products from "../components/main-page/products/Products";
+import Footer from "../components/main-page/footer/Footer";
 import { NextPage } from "next";
 import classes from './index.module.scss'
 

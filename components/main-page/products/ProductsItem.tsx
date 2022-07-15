@@ -1,10 +1,16 @@
+import { useRouter } from "next/router";
 import { Grid, Typography as Typo, Box } from "@mui/material";
 import StarBorder from "@mui/icons-material/StarBorder";
 import Product from "../../../models/Product";
 import classes from "./ProductsItem.module.scss";
 
 const ProductsItem = (product: Product) => {
+  const router = useRouter()
   let formattedDescription = product.description.slice();
+
+  function clickHandler() {
+    router.push('/product/p0001')
+  }
 
   return (
     <Grid
@@ -12,6 +18,7 @@ const ProductsItem = (product: Product) => {
       component="section"
       className={classes.item}
       maxWidth={{xs: '400px'}}
+      onClick={clickHandler}
       xs={11}
       sm={6}
       md={4}

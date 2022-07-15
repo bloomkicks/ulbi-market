@@ -1,6 +1,8 @@
+import Link from "next/link";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import classes from "./HeaderNav.module.scss";
+import { MouseEventHandler } from "react";
 
 const links = [
   {
@@ -19,6 +21,7 @@ const links = [
 
 const HeaderNav = ({
   display,
+  clickHandler,
 }: {
   display?: {
     xs?: string;
@@ -27,6 +30,7 @@ const HeaderNav = ({
     lg?: string;
     xl?: string;
   };
+  clickHandler?: MouseEventHandler;
 }) => {
   return (
     <Box
@@ -38,19 +42,21 @@ const HeaderNav = ({
     >
       {links.map((link, i) => {
         return (
-          <Button
-            component="a"
-            key={"asdfkasjd" + link.name + i}
-            href={link.url}
-            sx={{
-              justifyContent: "center",
-              alignItems: "center",
-              px: "20px",
-              py: "10px",
-            }}
-          >
-            {link.name}
-          </Button>
+          <Link href={link.url} passHref>
+            <Button
+              onClick={clickHandler || function (){}}
+              component="a"
+              key={"asdfkasjd" + link.name + i}
+              sx={{
+                justifyContent: "center",
+                alignItems: "center",
+                px: "20px",
+                py: "10px",
+              }}
+            >
+              {link.name}
+            </Button>
+          </Link>
         );
       })}
     </Box>
