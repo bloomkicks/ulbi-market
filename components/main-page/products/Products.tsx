@@ -3,25 +3,29 @@ import Product from "../../../models/Product";
 import classes from "./Products.module.scss";
 import ProductsItem from "./ProductsItem";
 
-const products: Product[] = [
-  new Product(
-    "Galaxy H31",
-    "A cool budget phone that fits everyone",
-    ["Phone"]
-  ),
-  new Product(
-    "Galaxy G-Pro 11",
-    "Well designed gaming mobile for gamers",
-    ["Phone"]
-  ),
-  new Product(
-    "Hopo 20 S",
-    "The best out of all, Gold design, no boundaries",
-    ["Phone"]
-  ),
-];
+// const products: Product[] = [
+//   new Product(
+//     "Galaxy H31",
+//     "A cool budget phone that fits everyone",
+//     ["Phone"]
+//   ),
+//   new Product(
+//     "Galaxy G-Pro 11",
+//     "Well designed gaming mobile for gamers",
+//     ["Phone"]
+//   ),
+//   new Product(
+//     "Hopo 20 S",
+//     "The best out of all, Gold design, no boundaries",
+//     ["Phone"]
+//   ),
+// ];
 
-const Products = () => {
+const Products = ({
+  products
+}: {
+  products: Product[];
+}) => {
   return (
     <Grid
       container
@@ -31,22 +35,15 @@ const Products = () => {
       paddingRight={{ xs: 0, sm: "20px" }}
       justifyContent={{ xs: "center", sm: "flex-start" }}
       sx={{
-        mt: {xs: "5px", sm: "-10px"},
+        mt: { xs: "5px", sm: "-10px" },
         marginLeft: { xs: 0, sm: "25%" },
         width: { sm: "75%" },
       }}
       className={classes.products}
     >
-      {products.map((product) => {
+      {products.map(({ visible, id }) => {
         return (
-          <ProductsItem
-            title={product.title}
-            description={product.description}
-            categories={product.categories}
-            rating={product.rating}
-            id={product.id}
-            key={product.id}
-          />
+          <ProductsItem visible={visible} id={id} key={id} />
         );
       })}
     </Grid>

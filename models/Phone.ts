@@ -1,26 +1,29 @@
-import Product, { Rating, ProductId } from './Product'
+import Product, { ProductVisible, ProductHidden } from './Product'
 
 type ScreenSize = {
-  width: number,
-  height: number
+  width: string,
+  height: string 
 };
 
 type PhoneCamera = {
-  front: number,
-  main: number
+  front: string,
+  main: string 
 }
 
-
-class Phone extends Product {
+export interface PhoneProps {
   size: ScreenSize;
   model: string;
   camera: PhoneCamera;
+}
 
-  constructor(title: string, description: string, price: number, categories: string[], size: ScreenSize, model: string, camera: PhoneCamera, id?: ProductId, rating?: Rating) {
-    super(title, description, price, categories, id, rating)
-    this.size = size
-    this.model = model
-    this.camera = camera
+const categories = ['phone']
+
+class Phone extends Product {
+  props: PhoneProps
+  constructor(visible: ProductVisible, hidden: ProductHidden, props: PhoneProps) {
+    hidden.categories.push(...categories)
+    super(visible, hidden)
+    this.props = props
   }
 }
 

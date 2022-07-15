@@ -1,15 +1,24 @@
 import { useRouter } from "next/router";
 import { Grid, Typography as Typo, Box } from "@mui/material";
 import StarBorder from "@mui/icons-material/StarBorder";
-import Product from "../../../models/Product";
+import {
+  ProductVisible,
+  ProductId,
+} from "../../../models/Product";
 import classes from "./ProductsItem.module.scss";
 
-const ProductsItem = (product: Product) => {
-  const router = useRouter()
-  let formattedDescription = product.description.slice();
+const ProductsItem = ({
+  visible,
+  id,
+}: {
+  visible: ProductVisible;
+  id: ProductId;
+}) => {
+  const router = useRouter();
+  const formattedDescription = visible.description.slice();
 
   function clickHandler() {
-    router.push('/product/p0001')
+    router.push("/product/" + id);
   }
 
   return (
@@ -17,7 +26,7 @@ const ProductsItem = (product: Product) => {
       item
       component="section"
       className={classes.item}
-      maxWidth={{xs: '400px'}}
+      maxWidth={{ xs: "400px" }}
       onClick={clickHandler}
       xs={11}
       sm={6}
@@ -30,7 +39,7 @@ const ProductsItem = (product: Product) => {
       <Box className={classes.main}>
         <Typo variant="body2">{formattedDescription}</Typo>
         <Typo variant="subtitle1" lineHeight="1.5em">
-          {product.title}
+          {visible.title}
         </Typo>
       </Box>
       <Box className={classes.rating}>
@@ -42,7 +51,7 @@ const ProductsItem = (product: Product) => {
             verticalAlign: "middle",
           }}
         >
-          {product.rating ? product.rating : "0"}
+          {visible.rating !== 'No' ? visible.rating : "0"}
         </Typo>
         <StarBorder fontSize="small" />
       </Box>

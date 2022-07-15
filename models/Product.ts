@@ -1,37 +1,39 @@
 const { randomBytes } = require('crypto')
 
-export type Rating = 0 | 0.5 | 1 | 1.5 | 2 | 2.5 | 3 | 3.5 | 4 | 4.5 | 5
+export type Rating = "No" | 0 | 0.5 | 1 | 1.5 | 2 | 2.5 | 3 | 3.5 | 4 | 4.5 | 5
 export type ProductId = string
 
 function getId(): ProductId {
-  const bytes = randomBytes(16)
-  const id = bytes.toString()
+  const bytes = randomBytes(12)
+  const id = bytes.toString('hex')
 
   return id
 }
 
+export interface ProductVisible {
+  title: string,
+  description: string,
+  price: number,
+  rating: Rating
+}
+
+export interface ProductHidden {
+  categories: string[],
+}
+
 class Product {
-  title: string;
-  description: string;
-  price: number
-  categories: string[];
-  id: ProductId;
-  rating?: Rating;
+  visible: ProductVisible
+  hidden: ProductHidden
+  id: ProductId
 
   constructor(
-    title: string,
-    description: string,
-    price: number,
-    categories: string[],
-    id?: ProductId,
-    rating?: Rating,
+    visible: ProductVisible,
+    hidden: ProductHidden
   ) {
-    this.title = title
-    this.description = description
-    this.price = price
-    this.categories = categories
-    this.rating = rating!
-    this.id = id ? id : getId()
+    this.id = getId()
+
+    this.visible = visible
+    this.hidden = hidden
   }
 }
 
