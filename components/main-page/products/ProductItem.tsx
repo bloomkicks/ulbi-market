@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { Grid, Typography, Box } from "@mui/material";
+import { Grid, Typography, Box, Card } from "@mui/material";
 import StarBorder from "@mui/icons-material/StarBorder";
 import {
   ProductVisible,
@@ -33,30 +33,32 @@ const ProductsItem = ({
       md={4}
       lg={3}
     >
-      <Box bgcolor="primary.main" className={classes.image}>
-        <Typography variant="h5">Image</Typography>
-      </Box>
-      <Box className={classes.main}>
-        <Typography variant="body2">
-          {formattedDescription}
-        </Typography>
-        <Typography variant="subtitle1" lineHeight="1.5em">
-          {visible.title}
-        </Typography>
-      </Box>
-      <Box className={classes.rating}>
-        <Typography
-          component="strong"
-          variant="subtitle1"
-          fontWeight="bold"
-          sx={{
-            verticalAlign: "middle",
-          }}
-        >
-          {visible.rating !== "No" ? visible.rating : "0"}
-        </Typography>
-        <StarBorder fontSize="small" />
-      </Box>
+      <Card>
+        <Box bgcolor="primary.main" className={classes.image}>
+          <Typography variant="h1" component="p">
+            Image
+          </Typography>
+        </Box>
+        <Box padding="0 4px 5px 4px" className={classes.main}>
+          <Typography variant="caption">
+            {formattedDescription}
+          </Typography>
+          <Typography variant="h3" lineHeight="1.5em">
+            {visible.title}
+          </Typography>
+        </Box>
+        <Box className={classes.rating}>
+          <Typography
+            component="strong"
+            sx={{
+              verticalAlign: "middle",
+            }}
+          >
+            {visible.rating !== "No" ? visible.rating : "0"}
+          </Typography>
+          <StarBorder fontSize="small" />
+        </Box>
+      </Card>
     </Grid>
   );
 };

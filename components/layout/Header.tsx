@@ -32,7 +32,9 @@ const Header = () => {
             padding="10px 20px"
             sx={{ cursor: "pointer" }}
           >
-            <Typography variant="h6">КупиДевайс</Typography>
+            <Typography component="h6" variant="body1">
+              КупиДевайс
+            </Typography>
           </Box>
         </Link>
         <Box ml="auto">
@@ -56,7 +58,8 @@ const Header = () => {
             onClick={() => setIsOpen(true)}
             sx={{
               display: { xs: "inline-flex", md: "none" },
-              color: theme => theme.palette.primary.contrastText
+              color: (theme) =>
+                theme.palette.primary.contrastText,
             }}
           >
             <MenuIcon fontSize="large" />

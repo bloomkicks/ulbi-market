@@ -17,7 +17,7 @@ const links = [
   },
 ];
 
-const Nav = () => {
+const NavBar = () => {
   return (
     <List
       component="aside"
@@ -34,14 +34,15 @@ const Nav = () => {
       {links.map((link) => {
         return (
           <Link href={link.url} passHref>
-            <ListItemButton divider
+            <ListItemButton
+              divider
               sx={{
-                py: '10px',
+                py: "10px",
                 bgcolor: "primary.main",
                 color: "primary.contrastText",
-                ':hover': {
-                  bgcolor: 'primary.light'
-                }
+                ":hover": {
+                  bgcolor: "primary.light",
+                },
               }}
             >
               {link.name}
@@ -53,4 +54,4 @@ const Nav = () => {
   );
 };
 
-export default Nav;
+export default NavBar;

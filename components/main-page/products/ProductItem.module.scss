@@ -9,17 +9,15 @@
   height: 1.2em;
   line-height: 1em;
   display: inline-block;
-  width: calc(100% - 1em);
+  width: calc(100% - 2.5em);
 }
 
 .rating {
+  padding-right: 5px;
   float: right;
-  justify-content: center;
+  text-align: right;
   margin-top: 3px;
-}
-
-.rating strong {
-  vertical-align: sub;
+  max-width: 2.5em;
 }
 
 .rating svg {

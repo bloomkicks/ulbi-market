@@ -40,8 +40,8 @@ const Price = ({
         }}
       >
         <Typography
-          variant="subtitle1"
-          component="strong"
+          variant="body2"
+          component="h2"
           sx={{ paddingBottom: "2px" }}
         >
           от {price} ₽
@@ -53,11 +53,7 @@ const Price = ({
           }}
           onClick={addToBasket}
         >
-          {" "}
-          <Typography
-            variant="subtitle2"
-            color="primary.contrastText"
-          >
+          <Typography color="primary.contrastText">
             Добавить в корзину
           </Typography>
         </Button>

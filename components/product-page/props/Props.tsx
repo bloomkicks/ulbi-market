@@ -1,10 +1,6 @@
 import PropItem from "./PropItem";
 import { ProductProps } from "../../../models/Product";
-import {
-  Grid,
-  Typography,
-  List,
-} from "@mui/material";
+import { Grid, Typography, List } from "@mui/material";
 
 const Chars = ({ props }: { props: ProductProps }) => {
   return (
@@ -17,7 +13,8 @@ const Chars = ({ props }: { props: ProductProps }) => {
       <List
         subheader={
           <Typography
-            variant="h5"
+            variant="h1"
+            component="h2"
             sx={{ paddingLeft: "5px", marginBottom: "5px" }}
           >
             Характеристики:

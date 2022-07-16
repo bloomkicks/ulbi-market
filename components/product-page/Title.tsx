@@ -20,9 +20,7 @@ const Title = ({
       xs={10}
       md={4}
     >
-      <Typography variant="h5" component="h1">
-        {title}
-      </Typography>
+      <Typography variant="h1">{title}</Typography>
       <Box
         display="flex"
         justifyContent="center"
@@ -35,7 +33,7 @@ const Title = ({
           sx={{ height: "150px", width: "auto" }}
         />
         <Typography
-          variant="h5"
+          component="strong"
           color="white"
           sx={{
             position: "absolute",

@@ -6,7 +6,7 @@ const skyPhone = new Product(
     title: "SkyPhone 3000",
     description: "The best choice for gamers brought to us by SkyNet",
     price: 103399,
-    rating: 'No'
+    rating: 4
   }, {
   categories: ['budget', 'SkyNet', 'gamer', 'no bounds'],
 },
@@ -30,7 +30,7 @@ const samsos = new Product(
     title: "Samsos A4",
     description: "A popular choice known for good design",
     price: 210199,
-    rating: 'No'
+    rating: 4.5
   },
   {
     categories: ['design', 'Samsos', 'popular', 'no bounds', 'features'],

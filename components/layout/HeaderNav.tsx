@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
 import classes from "./HeaderNav.module.scss";
 import { MouseEventHandler } from "react";
 
@@ -14,8 +15,8 @@ const links = [
     url: "/basket",
   },
   {
-    name: "Выйти",
-    url: "#",
+    name: "Войти",
+    url: "/login",
   },
 ];
 
@@ -24,11 +25,8 @@ const HeaderNav = ({
   clickHandler,
 }: {
   display?: {
-    xs?: string;
-    sm?: string;
-    md?: string;
-    lg?: string;
-    xl?: string;
+    xs: string;
+    md: string;
   };
   clickHandler?: MouseEventHandler;
 }) => {
@@ -45,14 +43,14 @@ const HeaderNav = ({
           <Link href={link.url} passHref>
             <Button
               onClick={clickHandler || function () {}}
-              variant="contained"
+              variant="text"
               component="a"
               key={
                 "asd" + Math.random().toFixed(4) + link.name + i
               }
               size="large"
               sx={{
-                borderRadius: {xs: 0, md: '5px'},
+                borderRadius: { xs: 0, md: "5px" },
                 justifyContent: "center",
                 alignItems: "center",
                 color: {
@@ -67,7 +65,9 @@ const HeaderNav = ({
                 },
               }}
             >
-              {link.name}
+              <Typography component="h6" variant="body1">
+                {link.name}
+              </Typography>
             </Button>
           </Link>
         );
