@@ -1,6 +1,6 @@
 import { Typography, Box, Grid } from "@mui/material";
-import { StarRate } from "@mui/icons-material";
 import { Rating } from "../../models/Product";
+import StarRate from "@mui/icons-material/StarRate";
 
 const Title = ({
   title,
@@ -16,7 +16,7 @@ const Title = ({
       direction="column"
       justifyContent="center"
       alignItems="center"
-      maxWidth={{xs: "250px"}}
+      maxWidth={{ xs: "250px" }}
       xs={10}
       md={4}
     >
@@ -32,7 +32,7 @@ const Title = ({
       >
         <StarRate
           display="block"
-          sx={{ height: "100px", width: "auto" }}
+          sx={{ height: "150px", width: "auto" }}
         />
         <Typography
           variant="h5"

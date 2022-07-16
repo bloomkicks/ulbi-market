@@ -1,15 +1,13 @@
+import Typography from '@mui/material/Typography'
 import { NextPage } from "next";
 
 const Product: NextPage = () => {
   return (
-    <h1
-      style={{
-        margin: "15px auto",
-        width: "fit-content",
-      }}
-    >
-      This is a products page
-    </h1>
+    <Typography>
+      <Typography variant="h4" component="h1" paddingLeft="20px">
+        Product wasn't found
+      </Typography>
+    </Typography>
   );
 };
 

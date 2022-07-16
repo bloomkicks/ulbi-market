@@ -1,11 +1,11 @@
 import { useRouter } from "next/router";
-import { Grid, Typography as Typo, Box } from "@mui/material";
+import { Grid, Typography, Box } from "@mui/material";
 import StarBorder from "@mui/icons-material/StarBorder";
 import {
   ProductVisible,
   ProductId,
 } from "../../../models/Product";
-import classes from "./ProductsItem.module.scss";
+import classes from "./ProductItem.module.scss";
 
 const ProductsItem = ({
   visible,
@@ -33,17 +33,19 @@ const ProductsItem = ({
       md={4}
       lg={3}
     >
-      <Box className={classes.image}>
-        <Typo variant="h5">Image</Typo>
+      <Box bgcolor="primary.main" className={classes.image}>
+        <Typography variant="h5">Image</Typography>
       </Box>
       <Box className={classes.main}>
-        <Typo variant="body2">{formattedDescription}</Typo>
-        <Typo variant="subtitle1" lineHeight="1.5em">
+        <Typography variant="body2">
+          {formattedDescription}
+        </Typography>
+        <Typography variant="subtitle1" lineHeight="1.5em">
           {visible.title}
-        </Typo>
+        </Typography>
       </Box>
       <Box className={classes.rating}>
-        <Typo
+        <Typography
           component="strong"
           variant="subtitle1"
           fontWeight="bold"
@@ -51,8 +53,8 @@ const ProductsItem = ({
             verticalAlign: "middle",
           }}
         >
-          {visible.rating !== 'No' ? visible.rating : "0"}
-        </Typo>
+          {visible.rating !== "No" ? visible.rating : "0"}
+        </Typography>
         <StarBorder fontSize="small" />
       </Box>
     </Grid>

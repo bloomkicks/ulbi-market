@@ -16,7 +16,7 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
-    <AppBar color="secondary" sx={{ height: "50px" }}>
+    <AppBar sx={{ height: "50px" }}>
       <Toolbar
         sx={{
           height: "100%",
@@ -32,9 +32,7 @@ const Header = () => {
             padding="10px 20px"
             sx={{ cursor: "pointer" }}
           >
-            <Typography variant="h6" component="h6">
-              КупиДевайс
-            </Typography>
+            <Typography variant="h6">КупиДевайс</Typography>
           </Box>
         </Link>
         <Box ml="auto">
@@ -58,6 +56,7 @@ const Header = () => {
             onClick={() => setIsOpen(true)}
             sx={{
               display: { xs: "inline-flex", md: "none" },
+              color: theme => theme.palette.primary.contrastText
             }}
           >
             <MenuIcon fontSize="large" />

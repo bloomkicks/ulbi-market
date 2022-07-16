@@ -11,7 +11,7 @@ const links = [
   },
   {
     name: "Корзина",
-    url: "#",
+    url: "/basket",
   },
   {
     name: "Выйти",
@@ -38,20 +38,33 @@ const HeaderNav = ({
       className={classes.nav}
       display={display || { xs: "none", md: "inline-flex" }}
       flexDirection={{ xs: "column", md: "row" }}
-      gap="3px"
+      gap="5px"
     >
       {links.map((link, i) => {
         return (
           <Link href={link.url} passHref>
             <Button
-              onClick={clickHandler || function (){}}
+              onClick={clickHandler || function () {}}
+              variant="contained"
               component="a"
-              key={"asdfkasjd" + link.name + i}
+              key={
+                "asd" + Math.random().toFixed(4) + link.name + i
+              }
+              size="large"
               sx={{
+                borderRadius: {xs: 0, md: '5px'},
                 justifyContent: "center",
                 alignItems: "center",
-                px: "20px",
-                py: "10px",
+                color: {
+                  md: "primary.contrastText",
+                },
+                bgcolor: "transparent",
+                ":hover": {
+                  bgcolor: {
+                    xs: "background.default",
+                    md: "primary.light",
+                  },
+                },
               }}
             >
               {link.name}

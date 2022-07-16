@@ -13,7 +13,7 @@ const Image = () => {
     >
       <Box
         sx={{
-          backgroundColor: "#c4c4c4",
+          bgcolor: 'primary.main',
           width: "225px",
           height: "225px",
         }}

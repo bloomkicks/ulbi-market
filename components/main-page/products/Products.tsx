@@ -1,7 +1,7 @@
 import { Grid } from "@mui/material";
 import Product from "../../../models/Product";
 import classes from "./Products.module.scss";
-import ProductsItem from "./ProductsItem";
+import ProductItem from "./ProductItem";
 
 // const products: Product[] = [
 //   new Product(
@@ -22,9 +22,11 @@ import ProductsItem from "./ProductsItem";
 // ];
 
 const Products = ({
-  products
+  products,
+  styles = {},
 }: {
   products: Product[];
+  styles?: object;
 }) => {
   return (
     <Grid
@@ -38,12 +40,13 @@ const Products = ({
         mt: { xs: "5px", sm: "-10px" },
         marginLeft: { xs: 0, sm: "25%" },
         width: { sm: "75%" },
+        ...styles,
       }}
       className={classes.products}
     >
       {products.map(({ visible, id }) => {
         return (
-          <ProductsItem visible={visible} id={id} key={id} />
+          <ProductItem visible={visible} id={id} key={id} />
         );
       })}
     </Grid>
